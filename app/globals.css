@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   /* brand color system */
   --color-bg: #FAFAF8;          /* paper white */
@@ -25,9 +27,27 @@
   --font-body: var(--font-body-src), ui-sans-serif, system-ui, sans-serif;
 }
 
+/* dark theme — overrides the brand tokens; every component inherits via vars */
+html.dark {
+  color-scheme: dark;
+  --color-bg: #0B0B0D;          /* page */
+  --color-paper: #161619;       /* elevated card */
+  --color-ink: #F3F2EE;         /* text + light surfaces (inverts) */
+  --color-muted: #9A9A94;
+  --color-panel: #1A1A1E;       /* code panels — a touch above page */
+  --color-line: #2B2B31;        /* borders */
+  --color-line-soft: #232328;   /* subtle inner dividers */
+  --color-concrete: #3C3C43;
+  --color-alive: #34D058;
+  --color-warn: #FBBF24;
+  --color-down: #F87171;
+  --color-info: #60A5FA;
+}
+
 @layer base {
   html {
     background: var(--color-bg);
+    color-scheme: light;
   }
   body {
     background: var(--color-bg);
@@ -73,6 +93,12 @@
     mix-blend-mode: multiply;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   }
+}
+
+/* grain reads as darkening on light, lightening on dark */
+html.dark body::after {
+  mix-blend-mode: screen;
+  opacity: 0.05;
 }
 
 @keyframes af-blink {

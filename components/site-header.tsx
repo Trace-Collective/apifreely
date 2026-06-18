@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ApiMark } from "./logos";
 import { Barcode } from "./barcode";
+import { ThemeToggle } from "./theme-toggle";
 
 const NAV = [
   { href: "/providers", label: "Providers" },
@@ -72,6 +73,7 @@ export function SiteHeader() {
             We never see your API key
             <span className="h-1.5 w-1.5 rounded-full bg-accent" />
           </span>
+          <ThemeToggle />
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
