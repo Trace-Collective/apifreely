@@ -55,12 +55,14 @@ export const metadata: Metadata = {
     title: "apifreely — Free LLM APIs, ready in 30 seconds",
     description:
       "Find free & free-tier LLM APIs and connect them to your agent in seconds. We never see your keys.",
+    images: [{ url: "/og.png", width: 1200, height: 630, alt: "apifreely — Free LLM APIs" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "apifreely — Free LLM APIs, ready in 30 seconds",
     description:
       "Find free & free-tier LLM APIs and connect them to your agent in seconds.",
+    images: ["/og.png"],
   },
 };
 
