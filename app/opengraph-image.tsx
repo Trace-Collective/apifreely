@@ -1,8 +1,14 @@
 import { ImageResponse } from "next/og";
+import { readFileSync } from "node:fs";
+import { join } from "node:path";
 
 export const alt = "apifreely — Free LLM APIs, ready in 30 seconds";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
+
+const badge = `data:image/svg+xml;base64,${readFileSync(
+  join(process.cwd(), "public", "logo-badge-orange.svg"),
+).toString("base64")}`;
 
 export default function OpengraphImage() {
   return new ImageResponse(
@@ -19,11 +25,9 @@ export default function OpengraphImage() {
           fontFamily: "sans-serif",
         }}
       >
-        <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
-          <svg width="96" height="60" viewBox="0 0 64 40">
-            <path d="M12 0H52L64 12V28L52 40H12L0 28V12Z" fill="#080808" />
-            <rect x="37" y="28" width="15" height="4" fill="#FF5A00" />
-          </svg>
+        <div style={{ display: "flex", alignItems: "center", gap: 22 }}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={badge} width={150} height={75} alt="" />
           <div style={{ display: "flex", fontSize: 42, fontWeight: 800, color: "#080808" }}>
             apifreely
           </div>
