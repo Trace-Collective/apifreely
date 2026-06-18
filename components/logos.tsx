@@ -117,6 +117,8 @@ const BRAND: Record<string, { color: string; letter: string }> = {
   moonshot: { color: "#16171B", letter: "K2" },
   siliconflow: { color: "#6D28D9", letter: "SF" },
   zenmux: { color: "#7C3AED", letter: "ZM" },
+  nvidia: { color: "#76B900", letter: "NV" },
+  tokenrouter: { color: "#5B5BD6", letter: "TR" },
 };
 
 export function ProviderLogo({
